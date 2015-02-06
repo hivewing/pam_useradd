@@ -1,15 +1,15 @@
-pam module that creates new users
+pam module that creates new users on the fly and cleans up
 =================================
 
 intro
 -----
 
 pam_useradd creates accounts if they do not yet exist on the system.
+It only adds a user which can then be logged into with public-key authentication
 
-Useful for e.g. shared computers where the users of the system are
-not known before. A shared account which no or well known
-password sucks as everyone messes with the settings and files of
-others. So pam_useradd just dynamically creates new user accounts.
+It also will copy down any credentials from a configured server, to the .authorized_keys file
+It will not create a user if the URL returns nothing.
+
 
 usage
 -----
